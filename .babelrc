@@ -1,0 +1,47 @@
+{
+  "plugins": [
+    [
+      "next/dist/build/babel/plugins/jsx-pragma",
+      {
+        "module": "react",
+        "importAs": "React",
+        "pragma": "__jsx",
+        "property": "createElement"
+      }
+    ],
+    "babel-plugin-inline-react-svg",
+    [
+      "@emotion",
+      {
+        "autoLabel": "dev-only",
+        "cssPropOptimization": true,
+        "labelFormat": "[local]",
+        "sourceMap": true
+      }
+    ],
+    [
+      "module-resolver",
+      {
+        "alias": {
+          "@": "./src",
+          "@components": "./src/components",
+          "@interfaces": "./src/interfaces",
+          "@pages": "./src/pages"
+        },
+        "extensions": [".ts", ".tsx"]
+      }
+    ]
+  ],
+  "presets": [
+    [
+      "next/babel",
+      {
+        "preset-react": {
+          "importSource": "@emotion/react",
+          "pragma": "__jsx",
+          "runtime": "classic"
+        }
+      }
+    ]
+  ]
+}
